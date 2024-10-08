@@ -178,6 +178,15 @@ class ParseRouteTree {
     }
   }
 
+  void insertRoute<T>(GetPage<T> route) {
+    routes.insert(0, route);
+
+    // Add Page children.
+    for (var page in _flattenPage(route)) {
+      insertRoute(page);
+    }
+  }
+
   List<GetPage> _flattenPage(GetPage route) {
     final result = <GetPage>[];
     if (route.children.isEmpty) {

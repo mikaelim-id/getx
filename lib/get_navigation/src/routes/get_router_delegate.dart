@@ -405,7 +405,7 @@ class GetDelegate extends RouterDelegate<RouteDecoder>
       preventDuplicateHandlingMode: preventDuplicateHandlingMode,
     );
 
-    _routeTree.addRoute(getPage);
+    _routeTree.insertRoute(getPage);
     final args = _buildPageSettings(routeName, arguments);
     final route = _getRouteDecoder<T>(args);
     final result = await _push<T>(
